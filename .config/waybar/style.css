@@ -1,0 +1,138 @@
+@import "latte.css";
+
+* {
+  font-family: MonoLisa,Symbols Nerd Font;
+  font-size: 1rem;
+  min-height: 0;
+}
+
+#waybar {
+  background: transparent;
+  color: @text;
+  margin: 4px 4px;
+}
+
+#workspaces {
+  border-radius: 1rem;
+  margin: 4px;
+  background-color: @surface0;
+  margin-left: 1rem;
+}
+
+#workspaces button {
+  color: @lavender;
+  border-radius: 1rem;
+  padding: 0.4rem;
+}
+
+#workspaces button.active {
+  color: @sky;
+  border-radius: 1rem;
+}
+
+#workspaces button:hover {
+  color: @sapphire;
+  border-radius: 1rem;
+}
+
+#stats {
+  background-color: @surface0;
+  margin: 4px;
+  padding: 0px;
+  border-radius: 1rem;
+  margin-right: 1rem;
+}
+#clock:hover,
+#memory:hover,
+#wireplumber:hover,
+#custom-music:hover,
+#window:hover
+{
+  background-color: @base;
+  border: 1px solid rgba(255,255,255,0.3);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+#workspaces button.urgent {
+    color: @surface0;
+    background-color: @flamingo;
+}
+
+#window,
+#memory,
+#custom-music,
+#tray,
+#backlight,
+#clock,
+#battery,
+#pulseaudio,
+#wireplumber,
+#custom-lock,
+#custom-power {
+  background-color: @surface0;
+  padding: 0.5rem 1rem;
+  margin: 4px 0;
+  transition: background-color 0.5s;
+  border-radius: 1rem;
+  border: 1px solid rgba(0,0,0,0);
+}
+#memory,
+#wireplumber,
+#clock {
+  margin: 0;
+  border-radius: 1rem;
+}
+
+#clock {
+  color: @blue;
+}
+
+#battery {
+  color: @green;
+}
+
+#battery.charging {
+  color: @green;
+}
+
+#battery.warning:not(.charging) {
+  color: @red;
+}
+
+#backlight {
+  color: @yellow;
+}
+
+#pulseaudio,
+#wireplumber {
+  color: @maroon;
+}
+
+#custom-music {
+  color: @mauve;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+#window {
+  color: @sky;
+  border-radius: 1rem;
+}
+
+window#waybar.empty #window {
+  background: transparent;
+}
+
+#custom-lock {
+    color: @lavender;
+}
+
+#custom-power {
+    margin-right: 1rem;
+    color: @red;
+}
+
+#tray {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}

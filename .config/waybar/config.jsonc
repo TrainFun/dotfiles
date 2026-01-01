@@ -1,0 +1,157 @@
+{
+  "layer": "top", // Waybar at top layer
+  "position": "top", // Waybar position (top|bottom|left|right)
+  // "height": 45,
+  "width": 1280, // Waybar width
+  "modules-left": [
+    "hyprland/workspaces",
+    "custom/music"
+  ],
+  "modules-center": [
+    "hyprland/window"
+  ],
+  "modules-right": [
+    "tray",
+    "group/stats"
+  ],
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "sort-by-name": true,
+    "format": " {icon} ",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "urgent": "",
+      // "active": "",
+      "default": "",
+    },
+    "persistent-workspaces": {
+      "*": 4,
+    },
+  },
+  "hyprland/window": {
+    "format": "{title} — {class}",
+    "rewrite": {
+      "(.*?) — Zen Browser — zen": " $1",
+      "(.*?)( — com.mitchellh.ghostty)+": " $1",
+      "(.*?)( — dev.zed.Zed)+": " $1",
+      "(.*)( — (?!dev.zed.Zed)(?!com.mitchellh.ghostty)(?!zen)\\S*$)": "$1",
+    }
+  },
+  "tray": {
+    "icon-size": 18,
+    "spacing": 10,
+    "reverse-direction": true,
+  },
+  "memory": {
+    "format": " {}%",
+    "interval": 2,
+    "on-scroll-up": "",
+    "on-scroll-down": "",
+  },
+  "custom/music": {
+    "format": "{icon} {text}",
+    "escape": true,
+    "interval": 1,
+    "tooltip": false,
+    // "exec": "playerctl metadata --format='{{ title }}'",
+    "exec": "echo '{ \"text\": \"'$(playerctl metadata --format='{{ title }}')'\", \"tooltip\": \"'$(playerctl status)'\", \"alt\": \"'$(playerctl status)'\" }'",
+    "tooltip": true,
+    "return-type": "json",
+    "format-icons": {
+      "Playing": " ",
+      "Paused": "  ",
+    },
+    "on-click": "playerctl play-pause",
+    "max-length": 42
+  },
+  "group/power": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-left-to-right": false,
+    },
+    "modules": [
+      "power",
+      "wireplumber#source",
+    ],
+  },
+  "group/stats": {
+    "orientation": "inherit",
+    "modules": [
+      "wireplumber#source",
+      "wireplumber",
+      "memory",
+      "clock",
+    ],
+    "on-scroll-up": "",
+    "on-scroll-down": "",
+  },
+  "clock": {
+    "interval": 1,
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "󰃭 {:%d,%A}",
+    "format": " {:%H:%M:%S}",
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}",
+    "format-charging": "",
+    "format-plugged": "",
+    "format-alt": "{icon}",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "wireplumber": {
+    // "scroll-step": 1, // %, can be a float
+    "format": "{icon} {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "qpwgraph"
+  },
+  "wireplumber#source": {
+    "node-type": "Audio/Source",
+    "scroll-step": 10, // %, can be a float
+    "format": " {volume}%",
+    "format-muted": "",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+  },
+}

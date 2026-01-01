@@ -1,0 +1,47 @@
+# Ignore all
+*
+
+# Allow basics
+!/.gitignore
+!/.config/
+
+
+#############
+# Whitelist #
+#############
+
+# Zsh
+!/.zshrc
+
+# Tmux
+!.config/tmux/
+!.config/tmux/**
+
+# Neovim
+!.config/nvim/
+!.config/nvim/**
+
+# Ghostty
+!.config/ghostty/
+!.config/ghostty/**
+
+# Hyprland
+!.config/hypr/
+!.config/hypr/**
+
+# Waybar
+!.config/waybar/
+!.config/waybar/**
+
+# Rofi
+!.config/rofi/
+!.config/rofi/**
+
+
+##########
+# Ignore #
+##########
+
+# backups
+*.bak
+*.swp
