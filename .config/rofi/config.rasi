@@ -43,6 +43,7 @@ configuration {
 /*	parse-hosts: false;*/
 /*	parse-known-hosts: true;*/
 /*	combi-modes: "window,run";*/
+combi-modes: "drun,ssh";
 /*	matching: "normal";*/
 /*	tokenize: true;*/
 /*	m: "-5";*/

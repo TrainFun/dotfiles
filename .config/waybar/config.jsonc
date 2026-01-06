@@ -2,7 +2,7 @@
   "layer": "top", // Waybar at top layer
   "position": "top", // Waybar position (top|bottom|left|right)
   // "height": 45,
-  "width": 1280, // Waybar width
+  // "width": 1900, // Waybar width
   "modules-left": [
     "hyprland/workspaces",
     "custom/music"
@@ -25,11 +25,17 @@
       "4": "",
       "urgent": "",
       // "active": "",
-      "default": "",
+      "default": ""
     },
     "persistent-workspaces": {
-      "*": 4,
-    },
+      // "*": 0,
+      "DP-1": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
   },
   "hyprland/window": {
     "format": "{title} — {class}",
@@ -37,45 +43,44 @@
       "(.*?) — Zen Browser — zen": " $1",
       "(.*?)( — com.mitchellh.ghostty)+": " $1",
       "(.*?)( — dev.zed.Zed)+": " $1",
-      "(.*)( — (?!dev.zed.Zed)(?!com.mitchellh.ghostty)(?!zen)\\S*$)": "$1",
+      "(.*)( — (?!dev.zed.Zed)(?!com.mitchellh.ghostty)(?!zen)\\S*$)": "$1"
     }
   },
   "tray": {
     "icon-size": 18,
     "spacing": 10,
-    "reverse-direction": true,
+    "reverse-direction": true
   },
   "memory": {
     "format": " {}%",
     "interval": 2,
     "on-scroll-up": "",
-    "on-scroll-down": "",
+    "on-scroll-down": ""
   },
   "custom/music": {
     "format": "{icon} {text}",
     "escape": true,
     "interval": 1,
-    "tooltip": false,
-    // "exec": "playerctl metadata --format='{{ title }}'",
-    "exec": "echo '{ \"text\": \"'$(playerctl metadata --format='{{ title }}')'\", \"tooltip\": \"'$(playerctl status)'\", \"alt\": \"'$(playerctl status)'\" }'",
     "tooltip": true,
+    // "exec": "playerctl metadata --format='{{ title }}'",
+    "exec": "echo '{ \"text\": \"'$(playerctl -p spotify metadata --format='{{ title }}')'\", \"tooltip\": \"'$(playerctl -p spotify status)'\", \"alt\": \"'$(playerctl -p spotify status)'\" }'",
     "return-type": "json",
     "format-icons": {
       "Playing": " ",
-      "Paused": "  ",
+      "Paused": "  "
     },
-    "on-click": "playerctl play-pause",
+    "on-click": "playerctl -p spotify play-pause",
     "max-length": 42
   },
   "group/power": {
     "orientation": "inherit",
     "drawer": {
-      "transition-left-to-right": false,
+      "transition-left-to-right": false
     },
     "modules": [
       "power",
-      "wireplumber#source",
-    ],
+      "wireplumber#source"
+    ]
   },
   "group/stats": {
     "orientation": "inherit",
@@ -83,16 +88,16 @@
       "wireplumber#source",
       "wireplumber",
       "memory",
-      "clock",
+      "clock"
     ],
     "on-scroll-up": "",
-    "on-scroll-down": "",
+    "on-scroll-down": ""
   },
   "clock": {
     "interval": 1,
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format-alt": "󰃭 {:%d,%A}",
-    "format": " {:%H:%M:%S}",
+    "format": " {:%H:%M:%S}"
   },
   "backlight": {
     "device": "intel_backlight",
@@ -152,6 +157,6 @@
     "scroll-step": 10, // %, can be a float
     "format": " {volume}%",
     "format-muted": "",
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
-  },
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+  }
 }
