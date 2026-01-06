@@ -13,9 +13,9 @@
 # Zsh
 !/.zshrc
 
-# Tmux
-!.config/tmux/
-!.config/tmux/**
+# Zellij
+!.config/zellij/
+!.config/zellij/**
 
 # Neovim
 !.config/nvim/
