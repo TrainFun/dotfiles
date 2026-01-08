@@ -23,17 +23,20 @@
       "2": "",
       "3": "",
       "4": "",
-      "urgent": "",
+      "5": "",
+      "10": "0"
+      // "urgent": "",
       // "active": "",
-      "default": ""
+      // "default": ""
     },
     "persistent-workspaces": {
-      // "*": 0,
+      "*": 5,
       "DP-1": [
         1,
         2,
         3,
-        4
+        4,
+        5
       ]
     }
   },
@@ -63,13 +66,14 @@
     "interval": 1,
     "tooltip": true,
     // "exec": "playerctl metadata --format='{{ title }}'",
-    "exec": "echo '{ \"text\": \"'$(playerctl -p spotify metadata --format='{{ title }}')'\", \"tooltip\": \"'$(playerctl -p spotify status)'\", \"alt\": \"'$(playerctl -p spotify status)'\" }'",
+    "exec": "echo '{ \"text\": \"'$(playerctl -p spotify metadata --format='{{ title }}')'\", \"tooltip\": \"'$(playerctl -p spotify status)'\", \"alt\": \"'$(playerctl -p spotify status 2>&1)'\" }'",
     "return-type": "json",
     "format-icons": {
       "Playing": " ",
-      "Paused": "  "
+      "Paused": "  ",
+      "No players found": "   Spotify"
     },
-    "on-click": "playerctl -p spotify play-pause",
+    "on-click": "pgrep -x spotify && playerctl -p spotify play-pause || hyprctl dispatch exec spotify",
     "max-length": 42
   },
   "group/power": {

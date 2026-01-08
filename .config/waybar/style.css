@@ -1,4 +1,4 @@
-@import "latte.css";
+@import "mocha.css";
 
 * {
   font-family: MonoLisa,Symbols Nerd Font;
@@ -9,44 +9,62 @@
 #waybar {
   background: transparent;
   color: @text;
-  margin: 4px 4px;
+  /* margin: 4px 4px; */
 }
 
 #workspaces {
-  border-radius: 1rem;
-  margin: 4px;
+  border-radius: 2rem;
+  margin: 0.6rem 0;
   background-color: @surface0;
   margin-left: 1rem;
 }
 
 #workspaces button {
+  min-width: 1.6rem;
   color: @lavender;
-  border-radius: 1rem;
-  padding: 0.4rem;
-}
-
-#workspaces button.active {
-  color: @sky;
-  border-radius: 1rem;
+  background: transparent;
+  border-radius: 2rem;
+  transition: min-width 0.5s;
+  padding: 0.6rem;
 }
 
 #workspaces button:hover {
-  color: @sapphire;
-  border-radius: 1rem;
+  box-shadow: inherit;
+  text-shadow: inherit;
+  transition: background-color 0.5s;
+}
+
+#workspaces button.active {
+  margin: 0.6rem;
+  padding: 0;
+  color: @surface0;
+  border-radius: 2rem;
+  min-width: 6rem;
+  background-color: @sky;
+  /* transition: min-width 0.2s; */
+  transition: min-width 0.2s;
+}
+
+#workspaces button.focused {
+  color: @surface0;
+  border-radius: 2rem;
+  min-width: 4.2rem;
+  background-color: @sky;
 }
 
 #stats {
   background-color: @surface0;
-  margin: 4px;
+  margin: 0.6rem 0;
   padding: 0px;
-  border-radius: 1rem;
+  border-radius: 2rem;
   margin-right: 1rem;
 }
 #clock:hover,
 #memory:hover,
 #wireplumber:hover,
 #custom-music:hover,
-#window:hover
+window#waybar:not(.empty) #window:hover,
+#workspaces button:not(.active):hover
 {
   background-color: @base;
   border: 1px solid rgba(255,255,255,0.3);
@@ -71,16 +89,16 @@
 #custom-power {
   background-color: @surface0;
   padding: 0.5rem 1rem;
-  margin: 4px 0;
+  margin: 0.6rem 0;
   transition: background-color 0.5s;
-  border-radius: 1rem;
+  border-radius: 2rem;
   border: 1px solid rgba(0,0,0,0);
 }
 #memory,
 #wireplumber,
 #clock {
   margin: 0;
-  border-radius: 1rem;
+  border-radius: 2rem;
 }
 
 #clock {
@@ -115,8 +133,8 @@
 }
 
 #window {
-  color: @sky;
-  border-radius: 1rem;
+  color: @text;
+  border-radius: 2rem;
 }
 
 window#waybar.empty #window {
