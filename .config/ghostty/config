@@ -1,4 +1,4 @@
-theme = Catppuccin Latte
-font-family = MonoLisa Nerd Font
+theme = dark:Catppuccin Mocha,light:Catppuccin Latte
+font-family = MonoLisa
 font-size = 14
 background-opacity = 0.85
