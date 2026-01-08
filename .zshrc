@@ -1,3 +1,20 @@
+# Auto zellij when SSH
+if [ -v SSH_TTY ] && [ ! -v ZELLIJ ] && [ ! -v TMUX ]; then
+  exec zellij a main -c
+fi
+
+# Speedup startup (?
+DISABLE_AUTO_UPDATE="true"
+DISABLE_MAGIC_FUNCTIONS="true"
+DISABLE_COMPFIX="true"
+
+autoload -Uz compinit
+if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)" ]; then
+    compinit
+else
+    compinit -C
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -70,7 +87,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-vi-mode zsh-syntax-highlighting zsh-autosuggestions autoupdate)
+plugins=(git zsh-vi-mode zsh-autosuggestions autoupdate zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -107,6 +124,31 @@ export ZVM_VI_SURROUND_BINDKEY=s-prefix
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias dotfile='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 source ~/.zshrc_private
+
+# >>> Lazy load conda >>>
+_load_conda() {
+  unalias conda
+  __conda_prefix="$HOME/.miniconda3" # Set your conda Location
+
+  # >>> conda initialize >>>
+  __conda_setup="$("$__conda_prefix/bin/conda" 'shell.bash' 'hook' 2> /dev/null)"
+  if [ $? -eq 0 ]; then
+      eval "$__conda_setup"
+  else
+      if [ -f "$__conda_prefix/etc/profile.d/conda.sh" ]; then
+          . "$__conda_prefix/etc/profile.d/conda.sh"
+      else
+          export PATH="$__conda_prefix/bin:$PATH"
+      fi
+  fi
+  unset __conda_setup
+  # <<< conda initialize <<<
+
+  unset __conda_prefix
+  unfunction _load_conda
+}
+alias conda="_load_conda && conda"
+# <<< Lazy load conda <<<
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
