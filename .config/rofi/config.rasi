@@ -1,6 +1,6 @@
 @theme "catppuccin-default"
 configuration {
-/*	modes: "window,drun,run,ssh";*/
+  modes: "combi,emoji,window";
 	font: "MonoLisa 12";
 /*	location: 0;*/
 /*	yoffset: 0;*/
