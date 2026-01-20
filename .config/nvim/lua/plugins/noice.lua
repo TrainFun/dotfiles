@@ -1,4 +1,10 @@
 return {
-  "folke/noice.nvim",
-  enabled = false,
+  {
+    "folke/noice.nvim",
+    opts = {
+      cmdline = {
+        view = "cmdline",
+      },
+    },
+  },
 }
