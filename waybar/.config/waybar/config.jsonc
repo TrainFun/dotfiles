@@ -29,18 +29,17 @@
       // "urgent": "",
       // "active": "",
       // "default": ""
-    },
-    "persistent-workspaces": {
-      // "*": 5,
-      "DP-1": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ]
     }
+    // "persistent-workspaces": {
+    //   "DP-1": [
+    //     1,
+    //     2,
+    //     3,
+    //     4,
+    //     5,
+    //     6
+    //   ]
+    // }
   },
   "hyprland/window": {
     "format": "{title} — {class}",
