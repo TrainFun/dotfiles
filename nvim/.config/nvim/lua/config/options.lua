@@ -5,6 +5,8 @@ vim.opt.wrap = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.ttimeoutlen = 10
 
+vim.g.lazyvim_python_lsp = "basedpyright"
+
 -- Neovide
 if vim.g.neovide then
   vim.o.guifont = "MonoLisa,Symbols Nerd Font"
