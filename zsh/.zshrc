@@ -7,7 +7,7 @@ DISABLE_COMPFIX="true"
 export ZSH="$HOME/.oh-my-zsh"
 if [[ ! -d $ZSH ]]; then
   echo "oh-my-zsh not found, installing..."
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+  KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
 ZSH_THEME="robbyrussell"
 plugins=(git zsh-vi-mode zsh-autosuggestions autoupdate zsh-syntax-highlighting)
