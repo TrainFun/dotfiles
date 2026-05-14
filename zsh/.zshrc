@@ -5,9 +5,16 @@ DISABLE_COMPFIX="true"
 
 # oh-my-zsh
 export ZSH="$HOME/.oh-my-zsh"
+if [[ ! -d $ZSH ]]; then
+  echo "oh-my-zsh not found, installing..."
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+fi
 ZSH_THEME="robbyrussell"
 plugins=(git zsh-vi-mode zsh-autosuggestions autoupdate zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
+
+# Show hostname when SSH
+PS1="[%{$fg[green]%}%n%{$reset_color%}@%{$fg[yellow]%}%M%{$reset_color%}] $PS1"
 
 # ZVM surround
 export ZVM_VI_SURROUND_BINDKEY=s-prefix
@@ -23,4 +30,4 @@ function zvm_after_init() {
 }
 
 # Machine specific override
-source "$HOME/.zshrc.local"
+[[ -f "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
