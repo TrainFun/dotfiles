@@ -14,7 +14,7 @@ plugins=(git zsh-vi-mode zsh-autosuggestions autoupdate zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # Show hostname when SSH
-PS1="[%{$fg[green]%}%n%{$reset_color%}@%{$fg[yellow]%}%M%{$reset_color%}] $PS1"
+[[ -v SSH_TTY ]] && PS1="[%{$fg[green]%}%n%{$reset_color%}@%{$fg[yellow]%}%M%{$reset_color%}] $PS1"
 
 # ZVM surround
 export ZVM_VI_SURROUND_BINDKEY=s-prefix
