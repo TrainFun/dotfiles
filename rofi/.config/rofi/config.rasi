@@ -1,6 +1,6 @@
 @theme "catppuccin-default"
 configuration {
-  modes: "combi,emoji,window";
+  modes: "combi";
 	font: "MonoLisa 12";
 /*	location: 0;*/
 /*	yoffset: 0;*/
@@ -43,7 +43,7 @@ configuration {
 /*	parse-hosts: false;*/
 /*	parse-known-hosts: true;*/
 /*	combi-modes: "window,run";*/
-combi-modes: "drun,ssh";
+combi-modes: "window,drun,ssh,emoji";
 /*	matching: "normal";*/
 /*	tokenize: true;*/
 /*	m: "-5";*/
