@@ -67,14 +67,14 @@
     "interval": 1,
     "tooltip": true,
     // "exec": "playerctl metadata --format='{{ title }}'",
-    "exec": "echo '{ \"text\": \"'$(playerctl -p spotify metadata --format='{{ title }}')'\", \"tooltip\": \"'$(playerctl -p spotify status)'\", \"alt\": \"'$(playerctl -p spotify status 2>&1)'\" }'",
+    "exec": "echo '{ \"text\": \"'$(playerctl -p chromium metadata --format='{{ title }}')'\", \"tooltip\": \"'$(playerctl -p chromium status)'\", \"alt\": \"'$(playerctl -p chromium status 2>&1)'\" }'",
     "return-type": "json",
     "format-icons": {
       "Playing": " ",
       "Paused": "  ",
-      "No players found": "   Spotify"
+      "No players found": "   Cider"
     },
-    "on-click": "pgrep -x spotify && playerctl -p spotify play-pause || hyprctl dispatch exec spotify",
+    "on-click": "pgrep -x Cider && playerctl -p chromium play-pause || hyprctl dispatch 'hl.dsp.exec_cmd(\"cider\")'",
     "max-length": 42
   },
   "group/power": {
