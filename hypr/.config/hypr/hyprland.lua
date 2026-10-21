@@ -169,7 +169,7 @@ hl.config({
 	},
 
 	cursor = {
-		no_hardware_cursors = true,
+		no_hardware_cursors = false,
 		hide_on_key_press = true,
 	},
 })
@@ -526,7 +526,7 @@ hl.window_rule({
 hl.workspace_rule({ workspace = "1", monitor = "DP-1" })
 hl.workspace_rule({ workspace = "2", monitor = "DP-1" })
 hl.workspace_rule({ workspace = "3", monitor = "DP-1" })
-hl.workspace_rule({ workspace = "4", monitor = "DP-1" })
+hl.workspace_rule({ workspace = "4", monitor = "DP-2" })
 hl.workspace_rule({ workspace = "5", monitor = "DP-1" })
 hl.workspace_rule({ workspace = "6", monitor = "DP-1" })
 hl.workspace_rule({ workspace = "7", monitor = "DP-2" })
